@@ -1,12 +1,34 @@
+// import React from "react";
+// import Main from './Components/Main';
+// import './Components/style.css';
+// function App() {
+//   return (
+//     <>
+//       <Main/>
+//     </>
+//   );
+// }
+
+// export default App;
+
 import React from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './Components/Main';
+import BookDetail from "./Components/BookDetail";
 import './Components/style.css';
+
 function App() {
   return (
     <>
-      <Main/>
+      <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<Main />} />
+        <Route path="two/:id" element={<BookDetail />} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }
 
 export default App;
+

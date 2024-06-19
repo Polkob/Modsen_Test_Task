@@ -1,11 +1,19 @@
 import react, { useState } from "react";
 import Modal from "./Modal";
+import { useNavigate } from "react-router-dom"; ////////////
 
 const Card = ({ book }) => {
-
+    const navigate = useNavigate(); // Инициализируем useNavigate
     const [show, setShow] = useState(false);
     const [bookItem, setItem] = useState();
     console.log(book);
+
+    const handleClick = (item) => {
+        setItem(item);
+        setShow(true);
+        navigate(`two/${item.id}`, { state: { book: item } });
+    };
+
     return (
         <>
             {
@@ -16,7 +24,8 @@ const Card = ({ book }) => {
                     if (thumbnail !== undefined && amount !== undefined) {
                         return (
                             <>
-                                <div className="card" onClick={() => { setShow(true); setItem(item) }}>
+                                {/* <div className="card" onClick={() => { setShow(true); setItem(item) }}> */}
+                                <div className="card" key={item.id} onClick={() => handleClick(item)}>
                                     <img src={thumbnail} alt="" />
                                     <div>
                                         <h3 className="title">{item.volumeInfo.title}</h3>
@@ -24,7 +33,7 @@ const Card = ({ book }) => {
                                     </div>
                                 </div>
 
-                                <Modal show={show} item={bookItem} onClose={() => setShow(false)} />
+                                {/* <Modal show={show} item={bookItem} onClose={() => setShow(false)} /> */}
 
                             </>
                         )
@@ -36,3 +45,4 @@ const Card = ({ book }) => {
     )
 }
 export default Card;
+
