@@ -27,9 +27,10 @@ const Card = ({ book }) => {
                                 {/* <div className="card" onClick={() => { setShow(true); setItem(item) }}> */}
                                 <div className="card" key={item.id} onClick={() => handleClick(item)}>
                                     <img src={thumbnail} alt="" />
-                                    <div>
+                                    <div className="bottom">
+                                        <h5 className="catigories">{item.volumeInfo.categories}</h5>
                                         <h3 className="title">{item.volumeInfo.title}</h3>
-                                        <p className="amount">{item.volumeInfo.authors}</p>
+                                        <h4 className="autors">{item.volumeInfo.authors && item.volumeInfo.authors.join(', ')}</h4>
                                     </div>
                                 </div>
 

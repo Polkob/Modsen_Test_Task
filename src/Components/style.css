@@ -8,15 +8,15 @@
 }
 
 :root {
-    --primary-color: rgb(130, 181, 189);
-    --secondary-color: rgb(56, 77, 92);
+    --primary-color: rgb(140, 140, 140);
+    --secondary-color: rgb(64, 64, 64);
 }
 
 body {
     background-color: var(--primary-color);
 }
 
-htm {
+html {
     font-size: 75.5%;
 }
 
@@ -24,22 +24,25 @@ htm {
     width: 100%;
     height: 250px;
     color: var(--secondary-color);
-    box-shadow: 0 5px 10px var(--secondary-color);
+    box-shadow: 0 5px 20px var(--secondary-color);
     display: flex;
     align-items: center;
     position: relative;
+    background-image: url('../../public/images/background1.png'); /* Путь к вашей картинке */
+    background-size: cover; /* Растягивает картинку на всю ширину и высоту */
+    background-position: center; /* Выравнивание картинки по центру */
+    background-repeat: no-repeat; /* Отключает повторение фоновой картинки */
 }
 
-.header ::before {
+.header::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(url());
+    background: linear-gradient(var(--gradient-color1), var(--gradient-color2)); /* Градиентный фон */
     z-index: -1;
-
 }
 
 .row2 {
@@ -52,7 +55,9 @@ htm {
     font-size: 3rem;
     margin-top: 20px;
     margin-bottom: 15px;
+    background-color: rgba(211, 211, 211, 0.5);
 }
+
 
 .row2 img {
     margin-top: 30px;
@@ -82,7 +87,7 @@ htm {
     padding: 0 0.5rem;
 }
 .container {
-    width: 75%;
+    width: 85%;
     margin: 0 auto;
     margin-top: 35px;
     display: grid;
@@ -92,11 +97,11 @@ htm {
 }
 
 .card {
-    background-color: var(--secondary-color);
+    background-color:rgb(194, 190, 184);
     border-radius: 0;
-    padding: 0.5rem;
+    padding: 1rem;
     margin-bottom: 10px;
-    box-shadow: 0 5px 5px rgba(181, 241, 255, 0.5);
+    box-shadow: 0 5px 5px rgba(72, 73, 73, 0.5);
     transition: .5s;
     text-align: center;
     position: relative;
@@ -109,8 +114,8 @@ htm {
 }
 
 .card img {
-    width: 100%;
-    height: 200px;
+    width: 60%;
+    height: 60%;
     border-radius: 0 0 0 0;
 }
 
@@ -118,22 +123,19 @@ htm {
     display: flex;
     flex-direction: column;
 }
+.card .bottom .catigories{
+    color:rgb(115, 118, 120); 
+    text-decoration: underline;
+    margin-bottom: 5%;
 
+}
 .card .bottom .title {
     font-size: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 3%;
 }
 
-.card .bottom .amount {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    font-size: 13px;
-    font-weight: bold;
-    padding: 0.2rem;
+.card .bottom .autors {
+    color:rgb(115, 118, 120); 
 }
 
 .book-detail {
@@ -150,6 +152,7 @@ htm {
 .inner-box {
     display: flex;
     width: 100%;
+    position: relative;
 }
 
 .image-container {
@@ -180,15 +183,37 @@ htm {
 }
 
 .info h1 {
-    margin: 0 0 10px;
+    margin: 0 0 0.5%;
 }
 
 .info h3 {
-    margin: 0 0 10px;
+    margin: 0 0 0.5%;
 }
 
 .info h4 {
-    margin: 0 0 20px;
+    margin: 0 0 0.7%;
+    color:rgb(119, 128, 134); 
+}
+
+.info h5 {
+    margin: 0 0 2%;
+    color:rgb(90, 101, 109); 
+    text-decoration: underline;
+}
+
+.info a button {
+    font-size: 0.9em; /* Уменьшение размера кнопки */
+    border: none; /* Удаление границы */
+    background: none; /* Удаление фона */
+    padding: 0; /* Удаление внутренних отступов */
+    color: rgb(167, 179, 188); /* Цвет текста */
+    text-decoration: underline; /* Нижнее подчеркивание */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Анимация изменения цвета */
+}
+
+.info a button:hover {
+    color: rgb(20, 50, 80); /* Новый цвет при наведении */
 }
 
 .description {
@@ -202,14 +227,15 @@ htm {
 
 .close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px; 
+    right: 10px; 
     background: none;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
+    color: rgb(11, 27, 27);
+    z-index: 10; 
 }
-
 
 
 
