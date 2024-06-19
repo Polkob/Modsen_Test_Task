@@ -8,16 +8,9 @@ const Main = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const searchBook = () => {
-        axios
-            .get(
-                `https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyB4wWVXIPAAnJPE7vSQZWu8RnBqF_KJRMs&maxResults=30&startIndex=${(currentPage - 1) * 30}`
-            )
-            .then((res) => {
-                if (res.data.items) {
-                    setData(res.data.items);
-                }
-            })
-            .catch((err) => console.log(err));
+        axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU'+'&maxResults=30')
+            .then(res=>setData(res.data.items))
+            .catch(err=>console.log(err))
     };
 
     return (
@@ -37,13 +30,17 @@ const Main = () => {
                                 }
                             }}
                         />
-                        <button onClick={searchBook}>O-</button>
+                        <button onClick={searchBook}>o-</button>
                     </div>
                     <img src="../../public/images/background1.png" alt="" />
                 </div>
             </div>
-            <div className="container">{bookData.length > 0 && <Card book={bookData} />}</div>
-            <button onClick={() => setCurrentPage(currentPage + 1)}>Показать еще</button>
+            <div className="container">
+              {
+                    <Card book={bookData}/>
+              }  
+            </div>
+            {/* <button onClick={() => setCurrentPage(currentPage + 1)}>Показать еще</button> */}
         </>
     );
 };
