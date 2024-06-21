@@ -28,10 +28,10 @@ html {
     display: flex;
     align-items: center;
     position: relative;
-    background-image: url('../../public/images/background1.png'); /* Путь к вашей картинке */
-    background-size: cover; /* Растягивает картинку на всю ширину и высоту */
-    background-position: center; /* Выравнивание картинки по центру */
-    background-repeat: no-repeat; /* Отключает повторение фоновой картинки */
+    background-image: url('../../public/images/background1.webp'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
 }
 
 .header::before {
@@ -41,7 +41,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(var(--gradient-color1), var(--gradient-color2)); /* Градиентный фон */
+    background: linear-gradient(var(--gradient-color1), var(--gradient-color2)); 
     z-index: -1;
 }
 
@@ -95,6 +95,35 @@ html {
     grid-gap: 20px;
     box-sizing:border-box;
 }
+.total-books {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 20px;
+}
+
+.load-more-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.load-more {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.load-more:hover {
+    background-color: #0056b3;
+}
 
 .card {
     background-color:rgb(194, 190, 184);
@@ -109,7 +138,7 @@ html {
 
 .card:hover {
     transform: scale(0.95);
-    background-color: rgba(181, 241, 255, 0.5);
+    background-color: rgba(213, 212, 210, 0.5);
 
 }
 
@@ -175,7 +204,6 @@ html {
     padding: 0 5%;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
 }
 
 .info {
@@ -202,18 +230,18 @@ html {
 }
 
 .info a button {
-    font-size: 0.9em; /* Уменьшение размера кнопки */
-    border: none; /* Удаление границы */
-    background: none; /* Удаление фона */
-    padding: 0; /* Удаление внутренних отступов */
-    color: rgb(167, 179, 188); /* Цвет текста */
-    text-decoration: underline; /* Нижнее подчеркивание */
+    font-size: 0.9em;
+    border: none; 
+    background: none; 
+    padding: 0; 
+    color: rgb(167, 179, 188); 
+    text-decoration: underline; 
     cursor: pointer;
-    transition: color 0.3s ease; /* Анимация изменения цвета */
+    transition: color 0.3s ease; 
 }
 
 .info a button:hover {
-    color: rgb(20, 50, 80); /* Новый цвет при наведении */
+    color: rgb(20, 50, 80); 
 }
 
 .description {
@@ -236,71 +264,3 @@ html {
     color: rgb(11, 27, 27);
     z-index: 10; 
 }
-
-
-
-/* .book-detail{
-    min-height: 100vh;
-    width: 100%;
-    position:relative;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-/* .overlay-inner{
-    background: white;
-    width: 700px;
-    height: 550px;
-    padding: 1.5rem;
-    position: relative;
-    box-sizing: border-box;
-    overflow: hidden;
-    font-size: 1.3rem;
-}
-.overlay-inner .close{
-    position: absolute;
-    top:1rem;
-    right: 1rem;
-    outline: none;
-    border: none;
-    font-size: 17px;
-    background-color: transparent;
-}
-.overlay-inner .inner-box{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-}
-.overlay-inner .inner-box img{
-    margin-right: 20px;
-    width: 150px;
-    height: 200px;
-}
-.overlay-inner .inner-box h3{
-    margin-top: 10px;
-    color: green;
-}
-.overlay-inner .inner-box h4{
-    color: blue;
-}
-.overlay-inner .inner-box button{
-    outline: none;
-    border: none;
-    width: 100px;
-    border-radius: 5px;
-    background-color: #24a0ed;
-    color: white;
-    font-weight: bold;
-    padding: 0.3rem 0.5rem;
-}
-.overlay-inner .description{
-    margin-top: 2rem;
-    text-align: justify;
-    font-size: 13px;
-} */

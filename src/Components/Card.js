@@ -1,9 +1,8 @@
 import react, { useState } from "react";
-import Modal from "./Modal";
-import { useNavigate } from "react-router-dom"; ////////////
+import { useNavigate } from "react-router-dom"; 
 
 const Card = ({ book }) => {
-    const navigate = useNavigate(); // Инициализируем useNavigate
+    const navigate = useNavigate(); 
     const [show, setShow] = useState(false);
     const [bookItem, setItem] = useState();
     console.log(book);
@@ -20,11 +19,10 @@ const Card = ({ book }) => {
                 book.map((item) => {
 
                     let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
-                    let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
-                    if (thumbnail !== undefined && amount !== undefined) {
+                    //let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
+                    if (thumbnail !== undefined) {
                         return (
                             <>
-                                {/* <div className="card" onClick={() => { setShow(true); setItem(item) }}> */}
                                 <div className="card" key={item.id} onClick={() => handleClick(item)}>
                                     <img src={thumbnail} alt="" />
                                     <div className="bottom">
@@ -33,8 +31,6 @@ const Card = ({ book }) => {
                                         <h4 className="autors">{item.volumeInfo.authors && item.volumeInfo.authors.join(', ')}</h4>
                                     </div>
                                 </div>
-
-                                {/* <Modal show={show} item={bookItem} onClose={() => setShow(false)} /> */}
 
                             </>
                         )
