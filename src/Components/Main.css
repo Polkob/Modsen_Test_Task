@@ -126,7 +126,12 @@ html {
     font-size: 1.rem;
     padding-top: 20px;
 }
-
+.loading-indicator {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 20px;
+    color: #646464;
+}
 .load-more-container {
     width: 100%;
     text-align: center;

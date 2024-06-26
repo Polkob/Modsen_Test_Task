@@ -12,6 +12,7 @@ const Main = () => {
     const [startIndex, setStartIndex] = useState(0);
     const [sortBy, setSortBy] = useState('relevance');
     const [category, setCategory] = useState('all');
+    const [loading, setLoading] = useState(false);
 
 
     const categories = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
@@ -30,6 +31,8 @@ const Main = () => {
 
         apiUrl += `&key=${apiKey}&maxResults=${MAX_RESULTS}&startIndex=${reset ? 0 : startIndex}&orderBy=${sortBy}`;
 
+        setLoading(true);
+
         axios.get(apiUrl)
             .then(res => {
                 if (res.data.items) {
@@ -41,7 +44,8 @@ const Main = () => {
 
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false));
     };
 
     const handleSortChange = (event) => {
@@ -98,7 +102,8 @@ const Main = () => {
             <div className="container">
                 <Card book={bookData} />
             </div>
-            {bookData.length < totalItems && (
+            {loading && <div className="loading-indicator">Loading...</div>}
+            {!loading && bookData.length < totalItems && (
                 <div className="load-more-container">
                     <button className="load-more" onClick={() => searchBook(false)}>Load More</button>
                 </div>
