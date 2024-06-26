@@ -1,0 +1,71 @@
+.card {
+    background-color:rgb(175, 172, 168);
+    border-radius: 0;
+    padding: 1rem;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 5px rgba(72, 73, 73, 0.5);
+    transition: .5s;
+    text-align: center;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(0.95);
+    background-color: rgba(213, 212, 210, 0.5);
+
+}
+
+.card img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    max-height: 200px; /* Ограничение по высоте */
+    margin-bottom: 1rem;
+    border-radius: 0 0 0 0;
+}
+
+.card .bottom {
+    display: flex;
+    flex-direction: column;
+}
+.card .bottom h5{
+    color:rgb(135, 139, 142); 
+    text-decoration: underline;
+    margin-bottom: 5%;
+
+}
+.card .bottom .title {
+    font-size: 14px;
+    margin-bottom: 3%;
+}
+
+.card .bottom h4 {
+    color:rgb(74, 76, 78); 
+}
+
+@media (max-width: 495px) {
+    .card {
+        width: 50%;
+        margin-bottom: 20px;
+        margin: auto;
+        position: relative;
+    }
+
+    .card img {
+        width: 60%;
+        height: auto;
+        max-height: 150px;
+    }
+
+    .card .bottom h5 {
+        font-size: 0.6rem;
+    }
+
+    .card .bottom .title {
+        font-size: 1rem;
+    }
+
+    .card .bottom h4 {
+        font-size: 0.7rem;
+    }
+}

@@ -1,5 +1,6 @@
 import react, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
+import './Card.css';
 
 const Card = ({ book }) => {
     const navigate = useNavigate(); 
@@ -19,7 +20,6 @@ const Card = ({ book }) => {
                 book.map((item) => {
 
                     let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
-                    //let amount = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
                     if (thumbnail !== undefined) {
                         return (
                             <>
@@ -42,4 +42,5 @@ const Card = ({ book }) => {
     )
 }
 export default Card;
+
 

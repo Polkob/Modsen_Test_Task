@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Card from './Card';
-
-export const BASE_URL = 'https://www.googleapis.com/books/v1/volumes';
-export const MAX_RESULTS = 30;
-const apiKey = process.env.REACT_APP_API_KEY;
+import './Main.css';
+import { BASE_URL, MAX_RESULTS, apiKey } from '../Constants/Api';
 
 const Main = () => {
     const [search, setSearch] = useState('');
@@ -12,7 +11,8 @@ const Main = () => {
     const [totalItems, setTotalItems] = useState(0);
     const [startIndex, setStartIndex] = useState(0);
     const [sortBy, setSortBy] = useState('relevance');
-    const [category, setCategory] = useState('all'); // State для выбранной категории
+    const [category, setCategory] = useState('all');
+
 
     const categories = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
 
@@ -38,6 +38,7 @@ const Main = () => {
                         setTotalItems(res.data.totalItems);
                     }
                     setStartIndex(prevIndex => prevIndex + MAX_RESULTS);
+
                 }
             })
             .catch(err => console.log(err));
@@ -50,6 +51,14 @@ const Main = () => {
     const handleCategoryChange = (event) => {
         setCategory(event.target.value);
     };
+
+    // const handleCardClick = (id) => {
+    //     navigate(`/two/${book.id}`, { state: { book, bookData, search, sortBy, category, startIndex, totalItems } });
+    // };
+
+    useEffect(() => {
+        searchBook(true);
+    }, [search, sortBy, category]);
 
     return (
         <>
@@ -70,16 +79,17 @@ const Main = () => {
                         />
                         <button onClick={() => searchBook()}>Search</button>
                     </div>
-                    <select value={category} onChange={handleCategoryChange}>
-                        {categories.map(cat => (
-                            <option key={cat} value={cat}>{cat}</option>
-                        ))}
-                    </select>
-                    <select value={sortBy} onChange={handleSortChange}>
-                        <option value="relevance">Relevance</option>
-                        <option value="newest">Newest</option>
-                    </select>
-                    <img src="../../public/images/background1.png" alt="" />
+                    <div className="filter-container">
+                        <select className="category" value={category} onChange={handleCategoryChange}>
+                            {categories.map(cat => (
+                                <option key={cat} value={cat}>{cat}</option>
+                            ))}
+                        </select>
+                        <select className="sort" value={sortBy} onChange={handleSortChange}>
+                            <option value="relevance">Relevance</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div className="total-books">

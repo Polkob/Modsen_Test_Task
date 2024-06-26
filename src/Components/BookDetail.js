@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import './BookDetail.css';
 
 const BookDetail = () => {
     const location = useLocation();
@@ -17,7 +18,6 @@ const BookDetail = () => {
         <div className="book-detail">
             
             <div className="inner-box">
-                <button className="close" onClick={() => navigate('/')}>x</button>
                 <div className="image-container">
                     <img src={thumbnail} alt="" />
                     
@@ -35,6 +35,12 @@ const BookDetail = () => {
                         <h4>{volumeInfo.description}</h4>
                         
                     </div>
+                    <button 
+                        className="close" 
+                         onClick={() => navigate('/')}
+                     >
+                         Back
+                     </button>
                 </div>
             </div>
         </div>
@@ -42,3 +48,4 @@ const BookDetail = () => {
 };
 
 export default BookDetail;
+

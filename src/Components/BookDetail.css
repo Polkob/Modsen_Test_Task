@@ -1,0 +1,220 @@
+.book-detail {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+.inner-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    background-color: #ebebeb;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    box-shadow: 0 5px 15px rgba(32, 29, 29, 0.2);
+
+}
+
+.info-container {
+    width: 100%;
+    padding: 2rem 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+
+    padding-bottom: 2%;
+}
+
+.info h1 {
+    margin: 0 0 0.5%;
+    font-size: 1.5rem;
+}
+
+.info h3 {
+    margin: 0 0 0.9%;
+    font-size: 1.1rem;
+    color: rgb(81, 81, 81);
+}
+
+.info h4 {
+    margin: 0 0 0.6%;
+    font-size: 0.7rem;
+    color: rgb(119, 128, 134);
+}
+
+.info h5 {
+    margin: 0 0 2%;
+    color: rgb(90, 101, 109);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.info a button {
+    font-size: 0.8em;
+    border: none;
+    background: none;
+    color: rgb(167, 179, 188);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.info a button:hover {
+    color: rgb(20, 50, 80);
+}
+
+.description {
+    font-size: 0.7em;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #5a5a5a;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    height: 200px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 2%;
+}
+
+.description::-webkit-scrollbar {
+    display: none;
+
+}
+
+.close {
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: #dedede;
+    color: #000000;
+    margin-top: 2%;
+    align-self: auto;
+    transition: color 0.3s ease;
+    box-shadow: 0 5px 5px rgba(72, 73, 73, 0.3);
+    width: 15%;
+
+}
+
+.close:hover {
+    transform: scale(0.95);
+    background-color: rgba(213, 212, 210, 0.5);
+}
+
+@media (max-width: 550px) {
+    .book-detail {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
+        background-color: #f5f5f5;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        box-sizing: border-box;
+    }
+
+    .book-detail::-webkit-scrollbar {
+        display: none;
+    }
+
+    .inner-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .image-container img {
+        width: 30%;
+        height: auto;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-container {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        box-sizing: border-box;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    .info h1 {
+        margin: 0;
+    }
+
+    .info h3,
+    .info h4,
+    .info h5 {
+        margin: 0 0 10px;
+    }
+
+    .description {
+        font-size: auto;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        height: auto;
+    }
+
+    .close {
+        align-self: center;
+        padding: 5px 5px;
+        background-color: #888888;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.6rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .close:hover {
+        background-color: #0056b3;
+        transform: scale(0.95);
+    }
+
+}
