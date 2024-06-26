@@ -31,7 +31,7 @@ html {
     align-items: center;
     justify-content: center;
     position: relative;
-    background-image: url('../../public/images/background1.webp'); 
+    background-image: url('../../../public/images/background1.webp'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
@@ -77,13 +77,12 @@ html {
     color: #626466;
     margin-top: 2%;
     border: none;
-    flex: 1; /* Чтобы элементы занимали равное пространство */
+    flex: 1;
 }
 
-/* Контейнер, который будет содержать категории и сортировку */
 .filter-container {
     display: flex;
-    gap: 10px; /* Пространство между элементами */
+    gap: 10px; 
     width: 100%;
     margin-top: 2%;
 }
@@ -138,6 +137,7 @@ html {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    padding-bottom: 2%;
 }
 
 .load-more {
@@ -148,6 +148,7 @@ html {
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.9rem;
+    
 }
 
 .load-more:hover {
@@ -157,13 +158,13 @@ html {
 @media (max-width: 430px) {
     .filter-container {
         align-items: center;
-        flex-direction: column; /* Расположение элементов друг под другом */
+        flex-direction: column; 
     }
 
     .category,
     .sort {
-        width: 60%; /* Элементы занимают всю ширину */
-        margin-top: 5px; /* Дополнительное пространство между элементами */
+        width: 60%;
+        margin-top: 5px; 
     }
 
     .header {

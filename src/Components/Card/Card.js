@@ -11,7 +11,7 @@ const Card = ({ book }) => {
     const handleClick = (item) => {
         setItem(item);
         setShow(true);
-        navigate(`two/${item.id}`, { state: { book: item } });
+        navigate(`two/${item.id}`);
     };
 
     return (
@@ -19,16 +19,21 @@ const Card = ({ book }) => {
             {
                 book.map((item) => {
 
-                    let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
+                    const volumeInfo = item.volumeInfo;
+                    const thumbnail = volumeInfo?.imageLinks?.smallThumbnail;
+                    const title = volumeInfo?.title || '';
+                    const categories = volumeInfo?.categories ? volumeInfo.categories.join(', ') : '';
+                    const authors = volumeInfo?.authors ? volumeInfo.authors.join(', ') : '';
+
                     if (thumbnail !== undefined) {
                         return (
                             <>
                                 <div className="card" key={item.id} onClick={() => handleClick(item)}>
-                                    <img src={thumbnail} alt="" />
+                                    <img src={thumbnail}/>
                                     <div className="bottom">
-                                        <h5 className="catigories">{item.volumeInfo.categories}</h5>
-                                        <h3 className="title">{item.volumeInfo.title}</h3>
-                                        <h4 className="autors">{item.volumeInfo.authors && item.volumeInfo.authors.join(', ')}</h4>
+                                        <h5 className="catigories">{categories}</h5>
+                                        <h3 className="title">{title}</h3>
+                                        <h4 className="autors">{authors}</h4>
                                     </div>
                                 </div>
 
@@ -42,5 +47,4 @@ const Card = ({ book }) => {
     )
 }
 export default Card;
-
 
