@@ -26,6 +26,8 @@ const BookDetail = () => {
         return <p>Loading...</p>;
     }
 
+    const goBack = () => navigate(-1);
+
     const volumeInfo = book?.volumeInfo;
     const title = volumeInfo?.title || '';
     const categories = volumeInfo?.categories ? volumeInfo.categories.join(', ') : '';
@@ -33,9 +35,9 @@ const BookDetail = () => {
     const description = volumeInfo?.description ? volumeInfo.description.replace(/<[^>]*>/g, '') : '';
     const thumbnail = volumeInfo?.imageLinks?.smallThumbnail || '';
 
-    const handleBackClick = () => {
-        navigate('/');
-    };
+    // const handleBackClick = () => {
+    //     navigate('/');
+    // };
 
     return (
         <div className="book-detail">
@@ -60,7 +62,7 @@ const BookDetail = () => {
                     </div>
                     <button
                         className="close"
-                        onClick={handleBackClick}
+                        onClick={goBack}
                     >
                         Back
                     </button>
