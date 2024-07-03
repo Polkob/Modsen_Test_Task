@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Card from '../Card/Card';
+import Card from '../Card/Cards';
 import SearchBar from './SearchBar';
 import FilterBar from './FilterBar';
 import './Main.css';
 import { MAX_RESULTS } from '../../Constants/Api';
 import { searchBook } from './SearchBook';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { CATEGORIES } from '../../Constants/Сategories';
 
 const Main = () => {
     const navigate = useNavigate();
@@ -18,8 +19,6 @@ const Main = () => {
     const [sortBy, setSortBy] = useState(queryParams.get('sortBy') || 'relevance');
     const [category, setCategory] = useState(queryParams.get('category') || 'all');
     const [loading, setLoading] = useState(false);
-
-    const categories = ['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry'];
 
     const fetchBooks = async (reset = true) => {
         if (reset) {
@@ -86,7 +85,7 @@ const Main = () => {
                         onKeyPress={handleSearch}
                     />
                     <FilterBar
-                        categories={categories}
+                        categories={CATEGORIES}
                         category={category}
                         sortBy={sortBy}
                         handleCategoryChange={handleCategoryChange}

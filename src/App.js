@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './Components/Main/Main';
-import BookDetail from "./Components/BookDetail/BookDetail";
+import Main from './Components/Main/index';
+import BookDetail from "./Components/BookDetail/index";
 
 function App() {
   return (
