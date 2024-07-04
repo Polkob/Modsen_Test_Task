@@ -1,5 +1,5 @@
 .book-card {
-    background-color:rgb(175, 172, 168);
+    background-color: rgb(175, 172, 168);
     border-radius: 0;
     padding: 1rem;
     margin-bottom: 10px;
@@ -19,7 +19,7 @@
     width: 60%;
     height: 60%;
     object-fit: cover;
-    max-height: 200px; 
+    max-height: 200px;
     margin-bottom: 1rem;
     border-radius: 0 0 0 0;
 }
@@ -28,19 +28,25 @@
     display: flex;
     flex-direction: column;
 }
-.book-card .card-content h5{
-    color:rgb(135, 139, 142); 
+
+.book-card .card-content h5 {
+    color: rgb(135, 139, 142);
     text-decoration: underline;
     margin-bottom: 5%;
 
 }
+
 .book-card .card-content .title {
     font-size: 14px;
     margin-bottom: 3%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
 }
 
 .book-card .card-content h4 {
-    color:rgb(74, 76, 78); 
+    color: rgb(74, 76, 78);
 }
 
 @media (max-width: 495px) {
@@ -63,6 +69,9 @@
 
     .book-card .card-content .title {
         font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .book-card .card-content h4 {

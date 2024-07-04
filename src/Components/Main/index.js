@@ -19,6 +19,21 @@ const Main = () => {
     const [sortBy, setSortBy] = useState(queryParams.get('sortBy') || 'relevance');
     const [category, setCategory] = useState(queryParams.get('category') || 'all');
     const [loading, setLoading] = useState(false);
+    
+
+    const filterDuplicates = (items) => {
+        const uniqueItems = [];
+        const itemIds = new Set();
+
+        items.forEach(item => {
+            if (!itemIds.has(item.id)) {
+                uniqueItems.push(item);
+                itemIds.add(item.id);
+            }
+        });
+
+        return uniqueItems;
+    };
 
     const fetchBooks = async (reset = true) => {
         if (reset) {
@@ -32,7 +47,8 @@ const Main = () => {
             const data = await searchBook(search, category, sortBy, startIndex, reset);
 
             if (data.items) {
-                setData(prevData => reset ? data.items : [...prevData, ...data.items]);
+                const uniqueItems = filterDuplicates(data.items);
+                setData(prevData => reset ? uniqueItems : filterDuplicates([...prevData, ...uniqueItems]));
                 if (reset) {
                     setTotalItems(data.totalItems);
                 }

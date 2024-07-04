@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './BookCard.css'; 
+import './BookCard.css';
 
 
 const BookCard = ({ book }) => {
@@ -24,7 +24,9 @@ const BookCard = ({ book }) => {
       {thumbnail && <img src={thumbnail} alt={title} />}
       <div className="card-content">
         <h5 className="categories">{categories}</h5>
-        <h3 className="title">{title}</h3>
+        <h3 className="title">
+          {title.length > 30 ? `${title.slice(0, 20)}...` : title}
+        </h3>
         <h4 className="authors">{authors}</h4>
       </div>
     </div>
