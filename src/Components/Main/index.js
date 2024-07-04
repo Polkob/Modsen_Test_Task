@@ -20,20 +20,23 @@ const Main = () => {
     const [category, setCategory] = useState(queryParams.get('category') || 'all');
     const [loading, setLoading] = useState(false);
     
-
     const filterDuplicates = (items) => {
         const uniqueItems = [];
-        const itemIds = new Set();
-
+        const itemSet = new Set();
+    
         items.forEach(item => {
-            if (!itemIds.has(item.id)) {
+            const volumeInfo = item.volumeInfo;
+            const uniqueKey = `${volumeInfo.title}-${volumeInfo.authors?.join(',')}`;
+    
+            if (!itemSet.has(uniqueKey)) {
                 uniqueItems.push(item);
-                itemIds.add(item.id);
+                itemSet.add(uniqueKey);
             }
         });
-
+    
         return uniqueItems;
     };
+    
 
     const fetchBooks = async (reset = true) => {
         if (reset) {
